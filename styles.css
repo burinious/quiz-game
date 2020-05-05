@@ -1,0 +1,138 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+:root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url(https://res.cloudinary.com/burinious/image/upload/v1587208575/personal%20web%20page%20images/section_bg02_ua6kdd.jpg);
+
+}
+
+/* body.correct {
+    --hue: var(--hue-correct);
+}
+
+body.correct {
+    --hue: var(--hue-wrong);
+} */
+/* .main-container{
+    margin: 1rem;
+    padding: 2rem;
+    border: 2px solid;
+    border-radius: 5px;
+} */
+#big-heading{
+    --hue: var(--hue-neutral);
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    color: hsl(var(--hue), 100%, 50%);
+}
+#container {
+    margin: 15rem auto;
+    text-align: center;
+    display: block;
+    width: 800px;
+    max-width: 90%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 0 10px 2px;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 1rem;
+    margin: 20px 0;
+}
+
+.btn {
+    --hue: var(--hue-neutral);
+    border: 2px solid hsl(var(--hue), 100%, 30%);
+    background-color: hsl(var(--hue), 100%, 50%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #fff;
+    outline: none;
+}
+
+.btn:hover {
+    border-color: black;
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+    color: black;
+}
+
+.btn.wrong {
+    --hue: var(--hue-wrong);
+}
+
+.next-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+.start{
+    text-align: center;
+    animation: bounce;
+    animation-duration: 0.8s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
+}
+.start-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 20px;
+    width: 10rem;
+
+}
+@keyframes bounce{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-30px);
+    }
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.bottom-container {
+    --hue: var(--hue-neutral);
+    margin-top: 1rem;
+    text-align: center;
+    position: relative;
+    background-color: hsl(var(--hue), 100%, 50%);
+    padding: 2rem;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    outline: none;
+}
+.copyright {
+    color: #EAF6F6;
+    font-size: 0.75em;
+    padding: 20px 0;
+}
