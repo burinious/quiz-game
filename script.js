@@ -4,6 +4,8 @@ const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const containerElement =document.getElementById('container');
 const headerElement= document.getElementById('big-heading');
+const homePage = document.getElementById("btn-reload");
+
 
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
@@ -11,6 +13,9 @@ const answerButtonsElement = document.getElementById('answer-buttons');
 let shuffledQuestions, currentQuestionIndex;
 
 startButton.addEventListener('click', startGame);
+homePage.addEventListener("click", ()=>{
+    document.location.reload();
+});
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++;
     setNextQuestion();
@@ -29,7 +34,8 @@ function startGame() {
 // function to set next question
 function setNextQuestion() {
     resetState();
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
+    currentQuestion= shuffledQuestions[currentQuestionIndex];
+    showQuestion(currentQuestion);
 }
 
 function showQuestion(question) {
@@ -49,6 +55,7 @@ function showQuestion(question) {
 function resetState() {
     clearStatusClass(document.body);
     nextButton.classList.add('hide');
+    homePage.classList.add('hide');
     while (answerButtonsElement.firstChild) {
         answerButtonsElement.removeChild(answerButtonsElement.firstChild);
     }
@@ -65,8 +72,11 @@ function selectAnswer(e) {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide');
     } else {
+        questionContainerElement.classList.add('hide');
         startButton.innerText = 'Restart';
-        startButton.classList.remove(hide);
+        startButton.classList.remove('hide');
+        homePage.classList.remove('hide');
+        showResults();
     }
 }
 
@@ -130,3 +140,20 @@ const questions = [
         ]
     }
 ];
+const showResults = () => {
+    quiz.innerHtml = "";
+    document.body.classList.add("body-flex");
+    const markup = `
+    <div class="quiz_end">
+    <h1 class="end_heading-1">Game Over!</h1>
+    <h2 class="end_heading-2">
+    Youer Score is:
+    </h2>
+    <p class="score">${points}</p>
+    <button id="btn_reload" class="btn_reload next">
+    return to homepage
+    </button>
+    </div>
+    `;
+    quiz.insertAdjacent("afterbegin", markup);
+};

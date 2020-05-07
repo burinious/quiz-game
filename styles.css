@@ -86,11 +86,16 @@ body.correct {
     padding: 10px 20px;
 }
 .start{
+    margin-top: -10rem;
     text-align: center;
     animation: bounce;
     animation-duration: 0.8s;
     animation-iteration-count: 3;
     animation-direction: alternate;
+}
+.start2{
+    text-align: center;
+    margin-top: 1rem;
 }
 .start-btn {
     font-size: 1.5rem;
@@ -126,6 +131,7 @@ body.correct {
     background-color: hsl(var(--hue), 100%, 50%);
     padding: 2rem;
 }
+
 a{
     text-decoration: none;
     color: #fff;
